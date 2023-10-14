@@ -1,11 +1,25 @@
 <template>
-  <router-view />
+  <router-view
+      :favoritesList="favoritesList"
+      @changeFavorites="handleChangeFavorites"
+  />
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
+const favoritesList = ref([]);
 
-export default {
-  name: 'App',
+const handleChangeFavorites = (newFavoritePerson) => {
+  const isNewPersonFavorite = favoritesList.value.some(item => item.name === newFavoritePerson.name);
+
+  if (isNewPersonFavorite) {
+    const index = favoritesList.value.findIndex(item => item.name === newFavoritePerson.name);
+    favoritesList.value.splice(index, 1);
+  } else {
+    favoritesList.value.push(newFavoritePerson);
+  }
+
+  console.log(favoritesList.value);
 }
 </script>
 

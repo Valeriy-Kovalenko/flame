@@ -5,11 +5,7 @@
   </main>
 </template>
 
-<script>
-export default {
-  name: "MainPage",
-  components: {}
-}
+<script setup>
 </script>
 
 <style scoped>
