@@ -5,7 +5,7 @@
   </main>
 </template>
 
-<script setup>
+<script lang="ts">
 </script>
 
 <style scoped>

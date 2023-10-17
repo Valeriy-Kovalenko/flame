@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import MainPage from './components/MainPage.vue';
-import PeopleList from "./components/PeopleList";
-import PersonPage from "./components/PersonPage";
-import FavoritesList from "./components/FavoritesList";
+import MainPage from './pages/MainPage.vue';
+import PeopleList from "./pages/PeoplePage.vue";
+import PersonPage from "./pages/PersonPage.vue";
+import FavoritesList from "./pages/FavoritesPage.vue";
 
 const router = createRouter({
   history: createWebHistory(),

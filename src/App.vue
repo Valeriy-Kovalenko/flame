@@ -5,7 +5,7 @@
   />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 const favoritesList = ref([]);
 
@@ -30,5 +30,14 @@ const handleChangeFavorites = (newFavoritePerson) => {
 
 body {
   margin: 0;
+}
+
+button {
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+input:focus {
+  outline: none;
 }
 </style>
