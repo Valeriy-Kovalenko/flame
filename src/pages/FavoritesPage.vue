@@ -2,12 +2,8 @@
 <div></div>
 </template>
 
-<script>
-export default {
-  name: "PersonPage"
-}
+<script lang="ts">
 </script>
 
 <style scoped>
-
 </style>
