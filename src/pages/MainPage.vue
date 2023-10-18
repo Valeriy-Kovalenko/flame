@@ -5,7 +5,8 @@
   </main>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+
 </script>
 
 <style scoped>
@@ -15,7 +16,8 @@ main {
   align-items: center;
   height: 100vh;
 }
-a {
+
+main a {
   text-decoration: underline;
   color: black;
   font-size: 56px;
