@@ -32,7 +32,7 @@ const props = defineProps({
   peopleList: Array as PropType<Person[]>,
 });
 
-const changeFavoriteStatus = (selectedPersonName: string): void => {
+const changeFavoriteStatus = (selectedPersonName: string) => {
   emit("changeFavoritesList", selectedPersonName);
 };
 </script>

@@ -19,19 +19,19 @@
 </template>
 
 <script lang="ts" setup>
-import {defineEmits, ref} from "vue";
-import ButtonsModal from './ButtonsModal.vue';
-import type {ChangedPerson} from "../../types";
+import { defineEmits, ref } from "vue";
+import ButtonsModal from "./ButtonsModal.vue";
+import type { ChangedPerson } from "../../types";
 
-const emit = defineEmits(['changePeopleList']);
+const emit = defineEmits(["changePeopleList"]);
 
 const isModalVisible = ref<boolean>(false);
 const isModalForAdd = ref<boolean>(false);
 const isModalForDelete = ref<boolean>(false);
 
-const showModal = (action): void => {
+const showModal = (action: string): void => {
   isModalVisible.value = !isModalVisible.value;
-  action === 'add' ? isModalForAdd.value = true : isModalForDelete.value = true;
+  action === "add" ? isModalForAdd.value = true : isModalForDelete.value = true;
 };
 
 const handleCloseAllModals = (): void => {
@@ -41,7 +41,7 @@ const handleCloseAllModals = (): void => {
 };
 
 const handleChangePeopleList = (changedPerson: ChangedPerson) => {
-  emit('changePeopleList', changedPerson);
+  emit("changePeopleList", changedPerson);
 };
 </script>
 
