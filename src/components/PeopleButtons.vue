@@ -21,27 +21,27 @@
 <script lang="ts" setup>
 import {defineEmits, ref} from "vue";
 import ButtonsModal from './ButtonsModal.vue';
+import type {ChangedPerson} from "../../types";
 
 const emit = defineEmits(['changePeopleList']);
 
-const isModalVisible = ref(false);
-const isModalForAdd = ref(false);
-const isModalForDelete = ref(false);
+const isModalVisible = ref<boolean>(false);
+const isModalForAdd = ref<boolean>(false);
+const isModalForDelete = ref<boolean>(false);
 
-const showModal = (action) => {
+const showModal = (action): void => {
   isModalVisible.value = !isModalVisible.value;
-  console.log(isModalVisible.value);
   action === 'add' ? isModalForAdd.value = true : isModalForDelete.value = true;
 };
 
-const handleCloseAllModals = () => {
+const handleCloseAllModals = (): void => {
   isModalVisible.value = false;
   isModalForAdd.value = false;
   isModalForDelete.value = false;
 };
 
-const handleChangePeopleList = (value) => {
-  emit('changePeopleList', value);
+const handleChangePeopleList = (changedPerson: ChangedPerson) => {
+  emit('changePeopleList', changedPerson);
 };
 </script>
 
