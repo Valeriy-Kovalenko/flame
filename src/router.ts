@@ -1,17 +1,20 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, RouterOptions } from "vue-router";
 
-import MainPage from './pages/MainPage.vue';
-import PeopleList from "./pages/PeoplePage.vue";
-import PersonPage from "./pages/PersonPage.vue";
-import FavoritesList from "./pages/FavoritesPage.vue";
+const MainPage = () => import("./pages/MainPage.vue");
+const PeoplePage = () => import("./pages/PeoplePage.vue");
+const PersonPage = () => import("./pages/PersonPage.vue");
+const FavoritesPage = () => import("./pages/FavoritesPage.vue");
 
-const router = createRouter({
+const router = createRouter(<RouterOptions>{
   history: createWebHistory(),
   routes: [
-    { path: '/', component: MainPage },
-    { path: '/people', component: PeopleList },
-    { path: '/people/:id', component: PersonPage },
-    { path: '/favorites', component: FavoritesList },
+    { path: "/", component: MainPage },
+    { path: "/people", component: PeoplePage },
+    { path: "/people/:id", component: PersonPage },
+    {
+      path: "/favorites",
+      component: FavoritesPage,
+    },
   ],
 });
 
