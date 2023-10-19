@@ -23,22 +23,23 @@
 
 <script lang="ts" setup>
 import { defineEmits, ref } from "vue";
-const emit = defineEmits(['changePeopleList', 'closeAllModals']);
+
+const emit = defineEmits(["changePeopleList", "closeAllModals"]);
 const props = defineProps({
   isModalVisible: Boolean,
   isModalForAdd: Boolean,
   isModalForDelete: Boolean,
 });
 
-const name = ref('');
-const height = ref('');
-const mass = ref('');
-const hairColor = ref('');
+const name = ref<string>("");
+const height = ref<string>("");
+const mass = ref<string>("");
+const hairColor = ref<string>("");
 
 const addPerson = () => {
-  const isInputEmpty = name.value === '' && height.value === '0' && mass.value === '0' && hairColor.value === '';
+  const isInputEmpty = name.value === "" && height.value === "0" && mass.value === "0" && hairColor.value === "";
   if (!isInputEmpty) {
-    emit('changePeopleList', {
+    emit("changePeopleList", {
       name: name.value,
       height: Number(height.value),
       mass: Number(mass.value),
@@ -47,25 +48,25 @@ const addPerson = () => {
     });
     closeModal();
   } else {
-    alert('Inputs are empty!');
+    alert("Inputs are empty!");
   }
 };
 
-const deletePerson = () => {
-  if (name.value !== '') {
-    emit('changePeopleList', name.value);
+const deletePerson = (): void => {
+  if (name.value !== "") {
+    emit("changePeopleList", name.value);
     closeModal();
   } else {
-    alert('Input is empty!');
+    alert("Input is empty!");
   }
 };
 
-const closeModal = () => {
-  name.value = '';
-  height.value = '';
-  mass.value = '';
-  hairColor.value = '';
-  emit('closeAllModals');
+const closeModal = (): void => {
+  name.value = "";
+  height.value = "";
+  mass.value = "";
+  hairColor.value = "";
+  emit("closeAllModals");
 };
 </script>
 

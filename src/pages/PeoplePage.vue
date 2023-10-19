@@ -9,22 +9,22 @@
 </template>
 
 <script lang="ts" setup>
-import {defineEmits, defineProps, PropType} from "vue";
+import { defineEmits, defineProps, PropType } from "vue";
 import PeopleButtons from "../components/PeopleButtons.vue";
 import PeopleTable from "../components/PeopleTable.vue";
-import type {Person, ChangedPerson} from "../../types";
+import type { Person, ChangedPerson } from "../../types";
 
-const emit = defineEmits(['changePeopleList', 'changeFavoritesList']);
+const emit = defineEmits(["changePeopleList", "changeFavoritesList"]);
 const props = defineProps({
   peopleList: Array as PropType<Person[]>,
 });
 
 const handleChangePeopleList = (changedPerson: ChangedPerson) => {
-  emit('changePeopleList', changedPerson);
+  emit("changePeopleList", changedPerson);
 };
 
 const handleChangeFavoritesList = (selectedPersonName) => {
-  emit('changeFavoritesList', selectedPersonName);
+  emit("changeFavoritesList", selectedPersonName);
 };
 </script>
 

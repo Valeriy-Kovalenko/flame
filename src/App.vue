@@ -59,6 +59,7 @@ onMounted(() => {
 <style>
 * {
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -66,6 +67,7 @@ body {
 }
 
 button {
+  border: 2px solid lightgrey;
   border-radius: 4px;
   padding: 2px 4px;
 }
