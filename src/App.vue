@@ -25,6 +25,7 @@ const getPeopleList = async () => {
     localStorage.setItem("peopleList", JSON.stringify(peopleList.value));
   } catch (error) {
     console.error(error);
+    alert("Произошла ошибка загрузки данных");
   }
 };
 
