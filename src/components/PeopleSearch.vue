@@ -54,7 +54,7 @@ const showPerson = (person) => {
   const splitUrl = person.url.split("/");
   const personId = splitUrl[splitUrl.length - 2];
   router.push({
-    path: `/people/${personId}`, params: { data: person },
+    path: `/people/${personId}`,
   });
 };
 
