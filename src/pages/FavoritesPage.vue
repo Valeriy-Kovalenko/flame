@@ -1,5 +1,5 @@
 <template>
-  <h1>Favorites characters list:</h1>
+  <h1>Favorite characters list:</h1>
   <PeopleTable
       :peopleList="favoritesList"
       @changeFavoritesList="handleChangeFavoriteList"
