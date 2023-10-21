@@ -1,4 +1,5 @@
 <template>
+  <div class="backdrop" v-if="searchResult.length !== 0 || searchQuery.length > 0" @click="resetSearch"></div>
   <div class="search">
     <img src="../assets/search.png"/>
     <input type="text" v-model.trim="searchQuery" @input="debouncedSearch" placeholder="Search">
@@ -14,8 +15,8 @@
 <script lang="ts" setup>
 import { PropType, ref } from "vue";
 import type { Person } from "../../types";
-import { debounce } from "lodash";
 import router from "../router";
+import { debounce } from "lodash";
 
 const props = defineProps({
   peopleList: Array as PropType<Person[]>,
@@ -50,12 +51,16 @@ const search = async () => {
 
 const debouncedSearch = debounce(search, 300);
 
+const resetSearch = () => {
+  searchQuery.value = "";
+  searchResult.value = [];
+  showNotFound.value = false;
+};
+
 const showPerson = (person) => {
   const splitUrl = person.url.split("/");
   const personId = splitUrl[splitUrl.length - 2];
-  router.push({
-    path: `/people/${personId}`, params: { data: person },
-  });
+  router.push({ path: `/people/${personId}` });
 };
 
 </script>
@@ -69,6 +74,7 @@ const showPerson = (person) => {
   width: 400px;
   border: 1px solid black;
   border-radius: 12px;
+  z-index: 2;
   background-color: #fff;
 }
 
@@ -92,7 +98,6 @@ const showPerson = (person) => {
   border: 1px solid lightgrey;
   border-radius: 12px;
   background-color: #fff;
-  z-index: 2;
   list-style: none;
   padding: 0;
   overflow: hidden;
@@ -111,5 +116,15 @@ const showPerson = (person) => {
 .not-found {
   top: 36px;
   padding: 4px 8px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.30);
+  z-index: 2;
 }
 </style>
