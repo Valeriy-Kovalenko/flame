@@ -1,5 +1,6 @@
 <template>
-  <h1 v-if="!isPersonOnList">No information found for this character in our database.</h1>
+  <h1 v-if="!isPersonOnList">No information found for this character in our database. This may differ from your
+    list.</h1>
   <template v-if="isPersonOnList">
     <h1>{{ currentPerson[0].name }}</h1>
     <PeopleTable
@@ -40,6 +41,8 @@ const handleChangeFavoritesList = (selectedPersonName) => {
 
 <style scoped>
 h1 {
+  margin: 20px auto auto;
   text-align: center;
+  max-width: 600px;
 }
 </style>
