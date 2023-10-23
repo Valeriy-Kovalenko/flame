@@ -18,7 +18,7 @@
 
 <script lang="ts" setup>
 import { defineEmits, ref } from "vue";
-import ButtonsModal from "./ButtonsModal.vue";
+import ButtonsModal from "./PeopleModal.vue";
 import type { ChangedPerson } from "../../types";
 import PeopleSearch from "./PeopleSearch.vue";
 import router from "../router";
