@@ -43,6 +43,7 @@ table {
   border: 2px solid black;
   border-radius: 3px;
   border-collapse: collapse;
+  min-width: 650px;
 }
 
 th, td {

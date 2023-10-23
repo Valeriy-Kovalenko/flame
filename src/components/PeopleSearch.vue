@@ -2,7 +2,7 @@
   <div class="backdrop" v-if="searchResult.length !== 0 || searchQuery.length > 0" @click="resetSearch"></div>
   <div class="search">
     <img src="../assets/search.png"/>
-    <input type="text" v-model.trim="searchQuery" @input="debouncedSearch" placeholder="Search">
+    <input type="text" v-model.trim="searchQuery" @input="debouncedSearch" placeholder="Search hero">
     <ul class="result" v-if="searchResult.length !== 0">
       <li v-for="person in searchResult" :key="person.name" @click="showPerson(person)">
         name: {{ person.name }}
@@ -71,7 +71,7 @@ const showPerson = (person) => {
   display: flex;
   align-items: center;
   height: 34px;
-  width: 400px;
+  max-width: 300px;
   border: 1px solid black;
   border-radius: 12px;
   z-index: 2;

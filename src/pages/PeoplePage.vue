@@ -30,7 +30,7 @@ const handleChangeFavoritesList = (selectedPersonName) => {
 
 <style scoped>
 .list {
-  max-width: 600px;
+  max-width: 650px;
   margin: 20px auto auto;
 }
 </style>

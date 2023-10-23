@@ -1,5 +1,6 @@
 <template>
   <div class="action-bar">
+    <button @click="changePage('')">Home</button>
     <PeopleSearch/>
     <div class="main-buttons">
       <button @click="showModal('add')">Add Hero</button>
@@ -20,6 +21,7 @@ import { defineEmits, ref } from "vue";
 import ButtonsModal from "./ButtonsModal.vue";
 import type { ChangedPerson } from "../../types";
 import PeopleSearch from "./PeopleSearch.vue";
+import router from "../router";
 
 const emit = defineEmits(["changePeopleList"]);
 
@@ -40,6 +42,10 @@ const handleCloseAllModals = (): void => {
 
 const handleChangePeopleList = (changedPerson: ChangedPerson) => {
   emit("changePeopleList", changedPerson);
+};
+
+const changePage = (path: string) => {
+  router.push("/" + path);
 };
 </script>
 
